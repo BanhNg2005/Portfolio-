@@ -68,9 +68,11 @@ $(document).ready(function () {
     let nameValue = $(this).val();
         if (nameValue === '') { 
             $(this).addClass("is-invalid");
+            $(this).css("borderColor", "red");
             nameError = false;
         } else {
         $(this).removeClass("is-invalid");
+        $(this).css("borderColor", "green");
         nameError = true;
         }
     });
@@ -79,9 +81,11 @@ $(document).ready(function () {
     let surnameValue = $(this).val();
         if (surnameValue === '') { 
             $(this).addClass("is-invalid");
+            $(this).css("borderColor", "red");
             surnameError = false;
         } else {
             $(this).removeClass("is-invalid");
+            $(this).css("borderColor", "green");
             surnameError = true;
         }
     }); 
@@ -91,9 +95,11 @@ $(document).ready(function () {
         let emailRegex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
         if (!emailRegex.test(emailValue)) { 
             $(this).addClass("is-invalid");
+            $(this).css("borderColor", "red");
             emailError = false;
         } else {
             $(this).removeClass("is-invalid");
+            $(this).css("borderColor", "green");
             emailError = true;
         }
     });
@@ -103,9 +109,11 @@ $(document).ready(function () {
     let messageValue = $(this).val();
         if (messageValue.length < 10) { 
             $(this).addClass("is-invalid");
+            $(this).css("borderColor", "red");
             messageError = false;
         } else {
             $(this).removeClass("is-invalid");
+            $(this).css("borderColor", "green");
             messageError = true;
         }
     });
