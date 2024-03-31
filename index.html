@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="scroll-up-btn">
@@ -13,14 +14,17 @@
     <div class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Port<span>folio</span></a></div>
-            <ul class="menu">
-                <li><a href="#home" >Start</a></li>
-                <li><a href="#about" >About</a></li>
-                <li><a href="#services" >Services</a></li>
-                <li><a href="#skills" >Speciality</a></li>
-                <li><a href="#teams" >Teams</a></li>
-                <li><a href="#contact" >Contact</a></li>
-            </ul>
+            <div class="menu-container">
+                <ul class="menu">
+                    <li><a href="#home" >Start</a></li>
+                    <li><a href="#about" >About</a></li>
+                    <li><a href="#services" >Services</a></li>
+                    <li><a href="#skills" >Speciality</a></li>
+                    <li><a href="#teams" >Teams</a></li>
+                    <li><a href="#contact" >Contact</a></li>
+                </ul>
+                <i id="themeSwitchIcon" class="theme-icon fas fa-moon"></i>
+            </div>
             <div class="menu-btn">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
@@ -194,20 +198,20 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form>
+                    <form id="formContact">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name">
+                                <input id="name" type="text" placeholder="Name">
                             </div>
                             <div class="field surname">
-                                <input type="text" placeholder="Surname">
+                                <input id="surname" type="text" placeholder="Surname">
                             </div>
                         </div>
                         <div class="field">
-                            <input type="email" placeholder="Email">
+                            <input id="email" type="email" placeholder="Email">
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="To write.." ></textarea>
+                            <textarea id="message" cols="30" rows="10" placeholder="To write.." ></textarea>
                         </div>
                         <div class="button">
                             <button id="sendMessageButton" type="submit">Send message</button>
