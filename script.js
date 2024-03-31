@@ -40,6 +40,10 @@ $(document).ready(function () {
     $('.carousel').owlCarousel({
        margin: 20,
        items: 2,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
        responsive: {
            0: {
                items: 1,
