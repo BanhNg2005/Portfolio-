@@ -64,71 +64,104 @@ $(document).ready(function () {
             $(this).removeClass("fa-sun").addClass("fa-moon"); 
         }
     });
-    let nameError = false;
-    let surnameError = false;
-    let emailError = false;
-
-    $("#name").on("blur", function() {
-    let nameValue = $(this).val();
-        if (nameValue === '') { 
-            $(this).addClass("is-invalid");
-            $(this).css("borderColor", "red");
-            nameError = false;
-        } else {
-        $(this).removeClass("is-invalid");
-        $(this).css("borderColor", "green");
+    $("#nameCheck").hide();
+let nameError = true;
+$("#name").keyup(function () {
+    validateName();
+});
+function validateName() {
+    let nameValue = $("#name").val();
+    if (nameValue.length == "") {
+        $("#nameCheck").show();
+        $("#nameCheck").html("**Please fill the name");
+        $("#name").css("border", "1px solid red"); 
+        nameError = false;
+        return false;
+    } else {
+        $("#nameCheck").hide();
+        $("#name").css("border", "1px solid green"); 
         nameError = true;
-        }
-    });
+    }
+}
 
-    $("#surname").on("blur", function() {
-    let surnameValue = $(this).val();
-        if (surnameValue === '') { 
-            $(this).addClass("is-invalid");
-            $(this).css("borderColor", "red");
-            surnameError = false;
-        } else {
-            $(this).removeClass("is-invalid");
-            $(this).css("borderColor", "green");
-            surnameError = true;
-        }
-    }); 
+$("#surnameCheck").hide();
+let surnameError = true;
+$("#surname").keyup(function () {
+    validateSurname();
+});
+function validateSurname() {
+    let surnameValue = $("#surname").val();
+    if (surnameValue.length == "") {
+        $("#surnameCheck").show();
+        $("#surnameCheck").html("**Please fill the surname");
+        $("#surname").css("border", "1px solid red");
+        surnameError = false;
+        return false;
+    } else {
+        $("#surnameCheck").hide();
+        $("#surname").css("border", "1px solid green");
+        surnameError = true;
+    }
+}
 
-    $("#email").on("blur", function() {
-        let emailValue = $(this).val();
-        let emailRegex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
-        if (!emailRegex.test(emailValue)) { 
-            $(this).addClass("is-invalid");
-            $(this).css("borderColor", "red");
-            emailError = false;
-        } else {
-            $(this).removeClass("is-invalid");
-            $(this).css("borderColor", "green");
-            emailError = true;
-        }
-    });
+$("#emailCheck").hide();
+let emailError = true;
+let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/; 
+$("#email").keyup(function () {
+    validateEmail();
+});
+function validateEmail() {
+    let emailValue = $("#email").val();
+    if (emailValue.length == "") {
+        $("#emailCheck").show();
+        $("#emailCheck").html("**Please fill the email");
+        $("#email").css("border", "1px solid red");
+        emailError = false;
+        return false;
+    } else if (!regex.test(emailValue)) {
+        $("#emailCheck").show();
+        $("#emailCheck").html("**Invalid email format");
+        $("#email").css("border", "1px solid red");
+        emailError = false;
+        return false;
+    } else {
+        $("#emailCheck").hide();
+        $("#email").css("border", "1px solid green");
+        emailError = true;
+    }
+}
 
-    let messageError = true;
-    $("#message").on("blur", function() {
-    let messageValue = $(this).val();
-        if (messageValue.length < 10) { 
-            $(this).addClass("is-invalid");
-            $(this).css("borderColor", "red");
-            messageError = false;
-        } else {
-            $(this).removeClass("is-invalid");
-            $(this).css("borderColor", "green");
-            messageError = true;
-        }
-    });
+$("#messageCheck").hide();
+let messageError = true;
+$("#message").keyup(function () {
+    validateMessage();
+});
+function validateMessage() {
+    let messageValue = $("#message").val();
+    if (messageValue.length == "") {
+        $("#messageCheck").show();
+        $("#messageCheck").html("**Please fill the message");
+        $("#message").css("border", "1px solid red");
+        messageError = false;
+        return false;
+    } else {
+        $("#messageCheck").hide();
+        $("#message").css("border", "1px solid green");
+        messageError = true;
+    }
+}
 
-    $("#sendMessageButton").click(function() {
-        if (nameError == true && surnameError == true && emailError == true && messageError == true) {
-            alert("Form is submitted successfully!");
-            return true;
-        } else {
-            alert("Please fill in the form correctly!");
-            return false;
-        }
-    });
+$("#submitbtn").click(function () {
+    validateName();
+    validateSurname();
+    validateEmail();
+    validateMessage();
+    if (nameError == true && surnameError == true && emailError == true && messageError == true) {
+        alert("Form submitted successfully");
+        return true;
+    } else {
+        alert("Form not submitted");
+        return false;
+    }
+});
 });

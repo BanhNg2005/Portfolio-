@@ -559,7 +559,7 @@ footer {
 .contact .right form .fields .field {
     width: 100%;
     height: 45px;
-    margin-bottom: 15px;
+    margin-bottom: 27px;
 }
  
 .contact .right form .field input,
@@ -798,4 +798,8 @@ footer span a:hover {
     position: relative;
     color: rgb(0, 0, 0/1);
     z-index: 0;
+}
+
+.error {
+    color: #dc3545;
 }
