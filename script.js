@@ -74,12 +74,12 @@ function validateName() {
     if (nameValue.length == "") {
         $("#nameCheck").show();
         $("#nameCheck").html("**Please fill the name");
-        $("#name").css("border", "1px solid red"); 
+        $("#name").css("border", "2px solid red"); 
         nameError = false;
         return false;
     } else {
         $("#nameCheck").hide();
-        $("#name").css("border", "1px solid green"); 
+        $("#name").css("border", "2px solid green"); 
         nameError = true;
     }
 }
@@ -94,12 +94,12 @@ function validateSurname() {
     if (surnameValue.length == "") {
         $("#surnameCheck").show();
         $("#surnameCheck").html("**Please fill the surname");
-        $("#surname").css("border", "1px solid red");
+        $("#surname").css("border", "2px solid red");
         surnameError = false;
         return false;
     } else {
         $("#surnameCheck").hide();
-        $("#surname").css("border", "1px solid green");
+        $("#surname").css("border", "2px solid green");
         surnameError = true;
     }
 }
@@ -115,18 +115,18 @@ function validateEmail() {
     if (emailValue.length == "") {
         $("#emailCheck").show();
         $("#emailCheck").html("**Please fill the email");
-        $("#email").css("border", "1px solid red");
+        $("#email").css("border", "2px solid red");
         emailError = false;
         return false;
     } else if (!regex.test(emailValue)) {
         $("#emailCheck").show();
         $("#emailCheck").html("**Invalid email format");
-        $("#email").css("border", "1px solid red");
+        $("#email").css("border", "2px solid red");
         emailError = false;
         return false;
     } else {
         $("#emailCheck").hide();
-        $("#email").css("border", "1px solid green");
+        $("#email").css("border", "2px solid green");
         emailError = true;
     }
 }
@@ -141,12 +141,12 @@ function validateMessage() {
     if (messageValue.length == "") {
         $("#messageCheck").show();
         $("#messageCheck").html("**Please fill the message");
-        $("#message").css("border", "1px solid red");
+        $("#message").css("border", "2px solid red");
         messageError = false;
         return false;
     } else {
         $("#messageCheck").hide();
-        $("#message").css("border", "1px solid green");
+        $("#message").css("border", "2px solid green");
         messageError = true;
     }
 }
